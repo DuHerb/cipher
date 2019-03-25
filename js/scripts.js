@@ -6,45 +6,52 @@ $(function() {
   var newstring = function(sentence) {
 
     var stringlength = sentence.length;
-    console.log(stringlength);
-
     var firstletter = sentence.charAt(0).toUpperCase();
-    console.log(firstletter);
-
     var lastletter = sentence.charAt(stringlength - 1).toUpperCase();
-    console.log(lastletter);
-
-    var midletters = sentence.slice(1, stringlength - 1);
-    console.log(midletters);
 
     return firstletter + lastletter;
-  }
-
-    // console.log(newstring(sentence));
+  };
 
   var newStringReverse = function(sentence) {
     var stringlength = sentence.length;
-    console.log(stringlength);
-
     var firstletter = sentence.charAt(0).toUpperCase();
-    console.log(firstletter);
-
     var lastletter = sentence.charAt(stringlength - 1).toUpperCase();
-    console.log(lastletter);
-
-    var midletters = sentence.slice(1, stringlength - 1);
-    console.log(midletters);
 
     return lastletter + firstletter;
 
   }
-  // console.log(newStringReverse(sentence));
+
+  var singleLetter = function(sentence) {
+
+    var stringLength = (sentence.length / 2).toFixed();
+    var letter = sentence.charAt(stringLength - 1);
+
+
+    return letter + sentence + newStringReverse(sentence);
+  }
 
   var shortString = function(sentence) {
 
-    console.log(newstring(sentence));
-    console.log(newStringReverse(sentence));
+    // console.log(newstring(sentence));
+    // console.log(newStringReverse(sentence));
+    return sentence + newStringReverse(sentence);
+
   }
 
-    shortString(sentence);
+  var cipher = function(sentence) {
+    var word =  singleLetter(sentence);
+    var newString = "";
+    for (var i = word.length - 1; i >= 0; i--) {
+      newString += word[i];
+      // console.log(newString);
+    }
+
+    console.log(newString);
+  }
+
+    // console.log(shortString(sentence));
+    // console.log(singleLetter(sentence));
+    cipher(sentence);
+
 });
+// var midletters = sentence.slice(1, stringlength - 1);
