@@ -29,7 +29,6 @@ $(function() {
       encodedString += keyText[i];
     }
     return encodedString;
-    // console.log(encodedString);
   }
 
 // getInput() returns a String that the user inputs via prompt
