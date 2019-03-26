@@ -1,10 +1,5 @@
 $(function() {
 
-// getInput() returns a String that the user inputs via prompt
-  var getInput = function() {
-    return prompt("What sentence would you like to encrypt?")
-  }
-
 // lastFirstLetters() returns a String of the last and first letters of String input
   var lastFirstLetters = function(input) {
     var stringLength = input.length;
@@ -33,7 +28,24 @@ $(function() {
     for (var i = keyText.length - 1; i >= 0; i--) {
       encodedString += keyText[i];
     }
-    console.log(encodedString);
+    return encodedString;
+    // console.log(encodedString);
   }
-    cipher(getInput());
+
+// getInput() returns a String that the user inputs via prompt
+  var getInput = function() {
+    return prompt("What sentence would you like to encrypt?")
+  }
+
+  var uncodedText = getInput();
+  var codedText = cipher(uncodedText);
+
+// add click events to spy images
+  $(".white-spy").click(function(){
+    alert(uncodedText);
+  });
+  $(".black-spy").click(function(){
+    alert(codedText);
+  });
+
 });
