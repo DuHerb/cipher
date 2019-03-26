@@ -1,57 +1,39 @@
 $(function() {
-  var sentence = prompt("What do you like to do in your free time?");
+  var input= prompt("What do you like to do in your free time?");
 
-  console.log(sentence);
+  console.log(input);
 
-  var newstring = function(sentence) {
-
-    var stringlength = sentence.length;
-    var firstletter = sentence.charAt(0).toUpperCase();
-    var lastletter = sentence.charAt(stringlength - 1).toUpperCase();
-
-    return firstletter + lastletter;
+  var newstring = function(input) {
+    var stringlength = input.length;
+    var firstLetter = input.charAt(0).toUpperCase();
+    var lastLetter = input.charAt(stringLength - 1).toUpperCase();
+    return firstLetter + lastLetter;
   };
 
-  var newStringReverse = function(sentence) {
-    var stringlength = sentence.length;
-    var firstletter = sentence.charAt(0).toUpperCase();
-    var lastletter = sentence.charAt(stringlength - 1).toUpperCase();
-
-    return lastletter + firstletter;
-
+  var lastFirstLetters = function(input) {
+    var stringLength = input.length;
+    var firstLetter = input.charAt(0).toUpperCase();
+    var lastLetter = input.charAt(stringLength - 1).toUpperCase();
+    return lastLetter + firstLetter;
   }
 
-  var singleLetter = function(sentence) {
-
-    var stringLength = (sentence.length / 2).toFixed();
-    var letter = sentence.charAt(stringLength - 1);
-
-
-    return letter + sentence + newStringReverse(sentence);
+  var singleLetter = function(input) {
+    var stringLength = (input.length / 2).toFixed();
+    var letter = input.charAt(stringLength - 1);
+    return letter + input + lastFirstLetters(input);
   }
 
-  var shortString = function(sentence) {
-
-    // console.log(newstring(sentence));
-    // console.log(newStringReverse(sentence));
-    return sentence + newStringReverse(sentence);
-
+  var shortString = function(input) {
+    return sentence + lastFirstLetters(sentence);
   }
 
-  var cipher = function(sentence) {
-    var word =  singleLetter(sentence);
+  var cipher = function(input) {
+    var word =  singleLetter(input);
     var newString = "";
     for (var i = word.length - 1; i >= 0; i--) {
       newString += word[i];
-      // console.log(newString);
     }
-
     console.log(newString);
   }
-
-    // console.log(shortString(sentence));
-    // console.log(singleLetter(sentence));
-    cipher(sentence);
-
+    cipher(input);
 });
-// var midletters = sentence.slice(1, stringlength - 1);
